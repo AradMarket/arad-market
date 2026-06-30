@@ -1,0 +1,398 @@
+@import "tailwindcss";
+
+* {
+  font-family: 'Vazirmatn', sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #0d1224;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2236;
+  --border-color: #1e2d45;
+  --text-primary: #e2e8f0;
+  --text-secondary: #8892a4;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-yellow: #f59e0b;
+  --accent-purple: #8b5cf6;
+}
+
+html {
+  background-color: var(--bg-primary);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1224;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2d45;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d4a72;
+}
+
+/* Number Animation */
+@keyframes pulse-green {
+  0%, 100% { color: #10b981; }
+  50% { color: #34d399; }
+}
+
+@keyframes pulse-red {
+  0%, 100% { color: #ef4444; }
+  50% { color: #f87171; }
+}
+
+.price-up {
+  animation: pulse-green 0.5s ease-in-out;
+}
+
+.price-down {
+  animation: pulse-red 0.5s ease-in-out;
+}
+
+/* Glowing effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 45, 69, 0.6);
+}
+
+/* Skeleton loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #111827 25%, #1a2236 50%, #111827 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* RTL specific */
+[dir="rtl"] .recharts-cartesian-axis-tick-value {
+  direction: ltr;
+}
+
+/* Sidebar transition */
+.sidebar-enter {
+  transform: translateX(100%);
+}
+
+.sidebar-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-in-out;
+}
+
+/* Table hover */
+.market-row:hover {
+  background: rgba(59, 130, 246, 0.04);
+}
+
+/* Input focus */
+.input-focus:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Badge pulse */
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.live-badge {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+/* Price ticker */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-content {
+  animation: ticker-scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
+/* Chart tooltip */
+.custom-tooltip {
+  background: #1a2236;
+  border: 1px solid #1e2d45;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Percentage badge */
+.percent-badge {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.percent-positive {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.percent-negative {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+/* Nav active state */
+.nav-item-active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1));
+  border-right: 3px solid #3b82f6;
+  color: #3b82f6;
+}
+
+/* Recharts responsive */
+.recharts-surface {
+  direction: ltr;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Number flash animation */
+@keyframes flashGreen {
+  0% { background: rgba(16, 185, 129, 0); }
+  30% { background: rgba(16, 185, 129, 0.2); }
+  100% { background: rgba(16, 185, 129, 0); }
+}
+
+@keyframes flashRed {
+  0% { background: rgba(239, 68, 68, 0); }
+  30% { background: rgba(239, 68, 68, 0.2); }
+  100% { background: rgba(239, 68, 68, 0); }
+}
+
+.flash-green {
+  animation: flashGreen 0.6s ease;
+}
+
+.flash-red {
+  animation: flashRed 0.6s ease;
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Stats counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-up {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Sparkline */
+.sparkline-green { stroke: #10b981; }
+.sparkline-red { stroke: #ef4444; }
+
+/* Rotating icon */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: rotate 3s linear infinite;
+}
+
+/* Hover glow on buttons */
+.btn-glow-blue:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Table row flash on update */
+@keyframes rowFlash {
+  0% { background: transparent; }
+  20% { background: rgba(59, 130, 246, 0.08); }
+  100% { background: transparent; }
+}
+
+.row-updated {
+  animation: rowFlash 1s ease;
+}
+
+/* Floating label */
+.floating-label {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+/* Neon text */
+.neon-blue {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Persian number fix */
+.ltr-number {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Mobile bottom nav */
+@media (max-width: 1024px) {
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Gradient card backgrounds */
+.card-gradient-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(17, 24, 39, 0.95));
+}
+
+.card-gradient-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(17, 24, 39, 0.95));
+}
+
+.card-gradient-violet {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(17, 24, 39, 0.95));
+}
+
+.card-gradient-amber {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(17, 24, 39, 0.95));
+}
+
+/* select styling */
+select option {
+  background-color: #1a2236;
+  color: white;
+}
+
+/* Custom checkbox */
+input[type="checkbox"] {
+  accent-color: #3b82f6;
+}
+
+/* Chart axis text */
+.recharts-text {
+  fill: #4b5563 !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+/* Sidebar width for responsive */
+@media (min-width: 1024px) {
+  .lg\:w-64 {
+    width: 16rem;
+  }
+}
+
+/* Persian font numbers */
+.persian-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* z-index layers */
+.z-sidebar { z-index: 40; }
+.z-header { z-index: 30; }
+.z-modal { z-index: 50; }
+.z-toast { z-index: 60; }
